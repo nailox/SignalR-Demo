@@ -9,9 +9,6 @@ namespace Osystems
 {
     public class Message
     {
-        //private string v1;
-        //private DateTime now;
-        //private bool v2;
 
         [Key]
         public int MsgNumber { get; set; }

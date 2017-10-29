@@ -8,7 +8,6 @@ namespace Osystems
         {
             Clients.All.receiveNotification(message);
 
-
         }
     }
 }

@@ -24,15 +24,12 @@ namespace OsystemsConsole
         
                     Message message = new Message(body, DateTime.Now, false);
 
-              
                     var connection = new HubConnection("http://localhost:20135");
 
                     var proxy = connection.CreateHubProxy("chatHub");
 
                 try { 
                     connection.Start().Wait();
-
-
 
                     if (connection.State == ConnectionState.Connected)
                     {
@@ -48,11 +45,9 @@ namespace OsystemsConsole
                     //insert message in database
                 using (var db = new MsgContext())
                     {
-
                         db.Messages.Add(new Message(body, DateTime.Now, false));
                         db.SaveChanges();
                         Console.WriteLine("Message saved to DB");
-
                     }
              
             }
