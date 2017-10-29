@@ -29,6 +29,7 @@ namespace OsystemsConsole
 
                     var proxy = connection.CreateHubProxy("chatHub");
 
+                try { 
                     connection.Start().Wait();
 
 
@@ -38,9 +39,14 @@ namespace OsystemsConsole
                         proxy.Invoke("receiveNotification", message);
 
                     }
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine("Cannot connect to client. Please make sure the MVC application is started at port 20135");
+                }
 
                     //insert message in database
-                    using (var db = new MsgContext())
+                using (var db = new MsgContext())
                     {
 
                         db.Messages.Add(new Message(body, DateTime.Now, false));
